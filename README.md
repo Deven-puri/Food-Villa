@@ -235,3 +235,6 @@ Built with ❤️ as part of the Namaste React learning journey.
 ---
 
 **Happy Coding! 
+# Development Progress
+
+This project was developed progressively from November to December 2025.
