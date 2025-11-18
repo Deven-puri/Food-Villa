@@ -9,9 +9,10 @@ A modern, feature-rich food delivery application built with React 18, TypeScript
 ## ✨ Features
 
 ### 🔍 Smart Search & Filtering
-- **Real-time Search**: Instantly find restaurants by name
+- **Real-time Search**: Instantly find restaurants by name with debouncing
 - **Rating Filter**: Filter restaurants with 4.0+ star ratings
 - **Dynamic Updates**: Live filtering without page reloads
+- **Search History**: Recent searches stored locally
 
 ### 🏪 Restaurant Browsing
 - **Card Layout**: Beautiful restaurant cards with images
