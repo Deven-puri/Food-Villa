@@ -1,11 +1,12 @@
-import React, { lazy, Suspense } from 'react';
-import Header from './components/Header';
-import Body from './components/Body';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import About from './components/About';
-import Error from './components/Error';
-import Contact from './components/Contact';
-import RestraurentsMenu from './components/RestraurentsMenu';
+import React, { lazy, Suspense } from "react";
+import "../style.css";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import RestraurentsMenu from "./components/RestraurentsMenu";
 
 //chuncking
 //lazy loading
@@ -14,8 +15,7 @@ import RestraurentsMenu from './components/RestraurentsMenu';
 //on demand loading
 //dynamic import
 
-const Grocery = lazy(() => import('./components/Grocery'));
-
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout: React.FC = () => {
   return (
@@ -33,19 +33,19 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
-        element: <About />
+        element: <About />,
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/restaurants/:resId",
-        element: <RestraurentsMenu />
+        element: <RestraurentsMenu />,
       },
       {
         path: "/grocery",
@@ -53,10 +53,10 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<div>Loading...</div>}>
             <Grocery />
           </Suspense>
-        )
-      }
-    ]
-  }
+        ),
+      },
+    ],
+  },
 ]);
 const App: React.FC = () => {
   return <RouterProvider router={appRouter} />;
