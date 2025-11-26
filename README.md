@@ -45,8 +45,8 @@ A modern, feature-rich food delivery application built with React 18, TypeScript
 
 ### Core Technologies
 - **React 18.2.0** - Modern React with hooks and Suspense
-- **TypeScript 5.0** - Type-safe JavaScript
-- **Tailwind CSS v4** - Utility-first CSS framework
+- **TypeScript 5.0** - Type-safe JavaScript development
+- **Tailwind CSS v3** - Utility-first CSS framework for rapid UI development
 
 ### Routing & State
 - **React Router DOM v6.30** - Client-side routing
