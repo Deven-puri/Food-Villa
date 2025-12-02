@@ -203,8 +203,8 @@ This project uses **Tailwind CSS v4** with the new `@tailwindcss/postcss` plugin
 
 ## 🔮 Future Enhancements
 
-- [ ] Shopping cart functionality
-- [ ] User authentication
+- [x] Shopping cart functionality (in progress)
+- [x] User authentication (planned)
 - [ ] Order placement
 - [ ] Payment integration
 - [ ] Restaurant reviews and ratings
