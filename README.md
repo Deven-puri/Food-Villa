@@ -224,6 +224,10 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
+**Deven Puri**
+- GitHub: [@Deven-puri](https://github.com/Deven-puri)
+- Project: [Food-Villa](https://github.com/Deven-puri/Food-Villa)
+
 Built with ❤️ as part of the Namaste React learning journey.
 
 ## 🙏 Acknowledgments
