@@ -160,10 +160,10 @@ The app uses the **FoodFire API** for restaurant data:
 
 ## 🎨 Tailwind CSS Setup
 
-This project uses **Tailwind CSS v4** with the new `@tailwindcss/postcss` plugin:
+This project uses **Tailwind CSS v3** with PostCSS for styling:
 
 ### Configuration Files
-- `tailwind.config.tsx` - Content paths and theme configuration
+- `tailwind.config.js` - Content paths and theme configuration
 - `.postcssrc` - PostCSS plugin setup
 - `style.css` - Tailwind directives and custom CSS
 
@@ -171,8 +171,10 @@ This project uses **Tailwind CSS v4** with the new `@tailwindcss/postcss` plugin
 - Flexbox utilities (`flex`, `justify-between`, `items-center`)
 - Spacing (`p-4`, `m-4`, `gap-6`)
 - Colors (`bg-pink-200`, `hover:bg-pink-300`)
+- Sizing (`w-12`, `h-12`)
 - Shadows (`shadow-lg`)
 - Borders (`border`, `rounded`)
+- Z-index (`z-10`, `relative`)
 - Responsive design utilities
 
 ## 📝 Available Scripts
