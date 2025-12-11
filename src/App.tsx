@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import "../style.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestraurentsMenu from "./components/RestraurentsMenu";
+import UserContext from "./utils/UserContext";
 
 //chuncking
 //lazy loading
@@ -18,11 +19,15 @@ import RestraurentsMenu from "./components/RestraurentsMenu";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout: React.FC = () => {
+  const [loggedInUser, setLoggedInUser] = useState("Default User");
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 const appRouter = createBrowserRouter([

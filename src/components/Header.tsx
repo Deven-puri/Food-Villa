@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Grocery from "./Grocery";
+import { useState, useContext } from "react";
+import UserContext from "../utils/UserContext";
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
@@ -14,8 +16,10 @@ const Header: React.FC<HeaderProps> = () => {
   useEffect(() => {
     console.log("useEffect called");
   }, [buttonName]);
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
   return (
-    <div className="flex justify-between items-center bg-pink-200 shadow-lg p-4 relative z-10">
+    <div className="flex justify-between items-center bg-yellow-100 shadow-lg p-4 relative z-10">
       <div className="flex items-center">
         <img
           src={LOGO_URL}
@@ -54,6 +58,7 @@ const Header: React.FC<HeaderProps> = () => {
               {buttonName}
             </button>
           </li>
+          <li> {loggedInUser}</li>
         </ul>
       </div>
     </div>

@@ -1,38 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CDN_URL } from '../utils/constants';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 interface RestaurantProps {
-    id: string | number;
-    ResName: string;
-    cusine: string;
-    cloudinaryImageId: string;
-    rating: string;
-    deliveryTime: string;
+  id: string | number;
+  ResName: string;
+  cusine: string;
+  cloudinaryImageId: string;
+  rating: string;
+  deliveryTime: string;
 }
 
 const styleCard = {
-    backgroundColor: "lightgrey",
+  backgroundColor: "lightgrey",
 };
 
+const RestaurantContainer: React.FC<RestaurantProps> = ({
+  id,
+  ResName,
+  cusine,
+  cloudinaryImageId,
+  rating,
+  deliveryTime,
+}) => {
+  const { loggedInUser } = useContext(UserContext);
 
-const RestaurantContainer: React.FC<RestaurantProps> = ({ id, ResName, cusine, cloudinaryImageId, rating, deliveryTime }) => {
-    return (
-        <Link to={`/restaurants/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="res-card" style={styleCard}>
-            <img 
-                className="res-logo" 
-                alt={ResName} 
-                src={CDN_URL + cloudinaryImageId}
-                loading="lazy"
-            />
-            <h3>{ResName}</h3>
-            <h4>{cusine}</h4>
-            <h4>{rating}</h4>
-            <h4>{deliveryTime}</h4>
-            </div>
-        </Link>
-    );
+  return (
+    <Link to={`/restaurants/${id}`} className="block h-full w-full max-w-xs">
+      <div className="res-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+        <img
+          className="res-logo w-full h-48 object-cover"
+          alt={ResName}
+          src={CDN_URL + cloudinaryImageId}
+          loading="lazy"
+        />
+        <div className="p-4 flex-1 flex flex-col">
+          <h3 className="font-bold text-lg mb-2 line-clamp-1">{ResName}</h3>
+          <h4 className="text-gray-600 text-sm mb-1 line-clamp-2 flex-1">
+            {cusine}
+          </h4>
+          <h4>⭐ {rating}</h4>
+          <h4 className="text-blue-600 text-sm mt-1 ">User: {loggedInUser}</h4>
+          <h4 className="text-gray-500 text-sm">{deliveryTime}</h4>
+        </div>
+      </div>
+    </Link>
+  );
 };
 
 export default RestaurantContainer;
