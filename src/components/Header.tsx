@@ -23,18 +23,20 @@ const Header: React.FC<HeaderProps> = () => {
   const { loggedInUser } = useContext(UserContext);
   console.log(loggedInUser);
   return (
-    <div className="flex justify-between items-center bg-yellow-100 shadow-lg p-4 relative z-10">
+    <div className="flex justify-between items-center bg-yellow-100 shadow-lg p-2 sm:p-4 relative z-10">
       <div className="flex items-center">
         <img
           src={LOGO_URL}
           alt="Logo"
-          className="w-12 h-12 object-contain"
+          className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
           style={{ maxWidth: "48px", maxHeight: "48px" }}
         />
       </div>
-      <div>
-        <ul className="flex gap-6 items-center list-none text-lg">
-          <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+      <div className="overflow-x-auto">
+        <ul className="flex gap-2 sm:gap-4 md:gap-6 items-center list-none text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
+          <li className="hidden md:block">
+            Online Status: {onlineStatus ? "✅" : "🔴"}
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -44,15 +46,20 @@ const Header: React.FC<HeaderProps> = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="hidden lg:block">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="font-bold">
-            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
+            <Link to="/cart">
+              <span className="hidden sm:inline">
+                Cart - ({cartItems.length} items)
+              </span>
+              <span className="sm:hidden">🛒 ({cartItems.length})</span>
+            </Link>
           </li>
           <li>
             <button
-              className="px-4 py-2 border border-black rounded cursor-pointer hover:bg-pink-300"
+              className="px-2 py-1 sm:px-4 sm:py-2 border border-black rounded cursor-pointer hover:bg-pink-300"
               onClick={() => {
                 buttonName === "Login"
                   ? setButtonName("Logout")
@@ -62,7 +69,7 @@ const Header: React.FC<HeaderProps> = () => {
               {buttonName}
             </button>
           </li>
-          <li> {loggedInUser}</li>
+          <li className="hidden md:block"> {loggedInUser}</li>
         </ul>
       </div>
     </div>
