@@ -54,7 +54,7 @@ const Cart = () => {
           Checkout
         </button>
         <button
-          className="px-6 py-2 sm:px-8 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm sm:text-base"
+          className="px-6 py-2 sm:px-8 sm:py-3 bg-black text-white rounded-lg hover:bg-red-600 transition-colors text-sm sm:text-base"
           onClick={handleClearCart}
         >
           Clear Cart
