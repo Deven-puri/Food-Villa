@@ -93,35 +93,37 @@ const RestaurantsMenu = () => {
   } = restInfo;
 
   return (
-    <div className="flex justify-center items-center flex-col mt-4 p-4">
-      <h1 className="text-3xl font-bold mb-4">{name}</h1>
+    <div className="flex justify-center items-center flex-col mt-4 p-2 sm:p-4">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center px-2">
+        {name}
+      </h1>
       {cloudinaryImageId && (
         <img
-          className="hover:shadow-2xl transition-shadow duration-300 w-40 h-50 rounded-xl"
+          className="hover:shadow-2xl transition-shadow duration-300 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-xl object-cover"
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
           alt={name}
         />
       )}
-      <div className="flex justify-center items-center w-full mt-2">
-        <div className="max-w-xl w-full bg-white rounded-2xl border p-5 justify-center hover:shadow-2xl transition-shadow duration-300">
+      <div className="flex justify-center items-center w-full mt-4 px-2">
+        <div className="max-w-xl w-full bg-white rounded-xl sm:rounded-2xl border p-4 sm:p-5 justify-center hover:shadow-2xl transition-shadow duration-300">
           {/* Rating + Cost Row */}
-          <div className="flex items-center gap-3 mb-3 align-middle">
-            <span className="flex items-center text-green-600 font-semibold">
+          <div className="flex items-center gap-2 sm:gap-3 mb-3 align-middle flex-wrap">
+            <span className="flex items-center text-green-600 font-semibold text-sm sm:text-base">
               ⭐ {avgRating}
             </span>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-700 font-medium">
+            <span className="text-gray-700 font-medium text-sm sm:text-base">
               ₹{costForTwo / 100} for two
             </span>
           </div>
 
           {/* Cuisines */}
-          <p className="text-orange-600 font-semibold underline cursor-pointer mb-2">
+          <p className="text-orange-600 font-semibold underline cursor-pointer mb-2 text-sm sm:text-base break-words">
             {cuisines?.join(", ")}
           </p>
 
           {/* Outlet + Delivery Time */}
-          <div className="flex flex-col gap-2 text-gray-700">
+          <div className="flex flex-col gap-2 text-gray-700 text-sm sm:text-base">
             <p>
               <span className="font-semibold">Outlet:</span>{" "}
               {sla?.lastMileTravelString || "—"}
@@ -135,7 +137,9 @@ const RestaurantsMenu = () => {
         </div>
       </div>
 
-      <h2 className="text-2xl font-semibold mb-4 mt-6">Menu</h2>
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4 mt-6 text-center">
+        Menu
+      </h2>
       {menuCategories?.length > 0 ? (
         <RestaurantCategories categories={menuCategories} />
       ) : (

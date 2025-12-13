@@ -30,19 +30,23 @@ const RestaurantContainer: React.FC<RestaurantProps> = ({
     <Link to={`/restaurants/${id}`} className="block h-full w-full max-w-xs">
       <div className="res-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
         <img
-          className="res-logo w-full h-48 object-cover"
+          className="res-logo w-full h-40 sm:h-48 object-cover"
           alt={ResName}
           src={CDN_URL + cloudinaryImageId}
           loading="lazy"
         />
-        <div className="p-4 flex-1 flex flex-col">
-          <h3 className="font-bold text-lg mb-2 line-clamp-1">{ResName}</h3>
-          <h4 className="text-gray-600 text-sm mb-1 line-clamp-2 flex-1">
+        <div className="p-3 sm:p-4 flex-1 flex flex-col">
+          <h3 className="font-bold text-base sm:text-lg mb-2 line-clamp-1">
+            {ResName}
+          </h3>
+          <h4 className="text-gray-600 text-xs sm:text-sm mb-1 line-clamp-2 flex-1">
             {cusine}
           </h4>
-          <h4>⭐ {rating}</h4>
-          <h4 className="text-blue-600 text-sm mt-1 ">User: {loggedInUser}</h4>
-          <h4 className="text-gray-500 text-sm">{deliveryTime}</h4>
+          <h4 className="text-sm sm:text-base">⭐ {rating}</h4>
+          <h4 className="text-blue-600 text-xs sm:text-sm mt-1 ">
+            User: {loggedInUser}
+          </h4>
+          <h4 className="text-gray-500 text-xs sm:text-sm">{deliveryTime}</h4>
         </div>
       </div>
     </Link>

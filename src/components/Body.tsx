@@ -92,18 +92,18 @@ const Body: React.FC = () => {
   }
 
   return (
-    <div className="body mt-2 pt-2">
-      <div className="filter-btn-container flex gap-4 items-center">
-        <div className="search flex gap-2 flex-1">
+    <div className="body mt-2 pt-2 px-2 sm:px-4">
+      <div className="filter-btn-container flex flex-col sm:flex-row gap-2 sm:gap-4 items-stretch sm:items-center max-w-7xl mx-auto">
+        <div className="search flex gap-2 flex-1 w-full sm:w-auto">
           <input
             type="text"
             placeholder="Search restaurants..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded flex-1"
+            className="px-3 py-2 border border-gray-300 rounded flex-1 text-sm sm:text-base"
           />
           <button
-            className="px-6 py-2 border border-gray-400 rounded hover:bg-gray-100 "
+            className="px-4 sm:px-6 py-2 border border-gray-400 rounded hover:bg-gray-100 text-sm sm:text-base whitespace-nowrap"
             onClick={() => {
               const searchedRestaurantList = restaurantList.filter(
                 (restaurant) =>
@@ -118,22 +118,22 @@ const Body: React.FC = () => {
           </button>
         </div>
         <button
-          className={`border border-solid border-black filter-btn px-6 py-2 rounded whitespace-nowrap hover:bg-gray-100 ${
+          className={`border border-solid border-black filter-btn px-4 sm:px-6 py-2 rounded whitespace-nowrap hover:bg-gray-100 text-sm sm:text-base ${
             isFiltered ? "active" : ""
           }`}
           onClick={handleFilterRestaurants}
         >
-          {isFiltered ? "Show All Restaurants" : "Top Rated Restaurants (4.0+)"}
+          {isFiltered ? "Show All" : "Top Rated (4.0+)"}
         </button>
         <input
           type="text"
           placeholder="Enter User name..."
-          className="px-4 py-2 border border-gray-300 rounded mr-2"
+          className="px-3 sm:px-4 py-2 border border-gray-300 rounded text-sm sm:text-base"
           onChange={(e) => setLoggedInUser(e.target.value)}
         />
       </div>
-      <div className="restaurant-Container mt-8 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+      <div className="restaurant-Container mt-4 sm:mt-8 max-w-7xl mx-auto px-2 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 justify-items-center">
           {filteredRestaurants.length === 0 ? (
             <Shimmer />
           ) : (
