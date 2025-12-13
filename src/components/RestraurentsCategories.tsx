@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
 
 // Simple Category component for each menu section
 const Category = ({
@@ -12,6 +14,13 @@ const Category = ({
   isOpen: boolean;
   onToggle: () => void;
 }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item: any) => {
+    dispatch(addItem(item));
+    console.log("Item added to cart");
+  };
+
   return (
     <div className="border rounded-lg mb-3 overflow-hidden">
       {/* Category Title */}
@@ -28,7 +37,7 @@ const Category = ({
           className="text-xl transition-transform"
           style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
         >
-          ▼
+          ⬇️
         </span>
       </div>
 
@@ -53,13 +62,21 @@ const Category = ({
                   )}
                 </div>
 
-                {item?.imageId && (
-                  <img
-                    className="w-20 h-20 object-cover rounded-lg"
-                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${item.imageId}`}
-                    alt={item?.name}
-                  />
-                )}
+                <div className="flex flex-col items-center gap-2">
+                  {item?.imageId && (
+                    <img
+                      className="w-20 h-20 object-cover rounded-lg"
+                      src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${item.imageId}`}
+                      alt={item?.name}
+                    />
+                  )}
+                  <button
+                    className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                    onClick={() => handleAddItem(item)}
+                  >
+                    Add+
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Grocery from "./Grocery";
-import { useState, useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
@@ -13,6 +13,10 @@ const Header: React.FC<HeaderProps> = () => {
   /* if o dependency array then useEffect us called on every rendering of the componsent */
   /* if empty dependency array then useEffect is called only once after the first rendering of the component */
   const onlineStatus = useOnlineStatus();
+
+  // subscribing to the store using a Selector
+  const cartItems = useSelector((store: any) => store.cart.items);
+
   useEffect(() => {
     console.log("useEffect called");
   }, [buttonName]);
@@ -43,8 +47,8 @@ const Header: React.FC<HeaderProps> = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>
-            <Link to="/cart">Cart</Link>
+          <li className="font-bold">
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
           <li>
             <button

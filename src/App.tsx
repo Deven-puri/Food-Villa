@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestraurentsMenu from "./components/RestraurentsMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 //chuncking
 //lazy loading
@@ -22,12 +25,14 @@ const AppLayout: React.FC = () => {
   const [loggedInUser, setLoggedInUser] = useState("Default User");
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+   </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -60,6 +65,11 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+        
+      }
     ],
   },
 ]);
