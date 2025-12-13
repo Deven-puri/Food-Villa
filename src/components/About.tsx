@@ -29,10 +29,10 @@ const About = () => {
         </p>
         <p className="text-gray-700 mb-3 font-semibold">Features include:</p>
         <ul className="list-none text-gray-700 space-y-2">
-          <li>🍽️ Browse restaurants</li>
-          <li>🔍 Search and filter options</li>
-          <li>🛒 Add items to cart</li>
-          <li>📱 Responsive design</li>
+          <li> Browse restaurants</li>
+          <li> Search and filter options</li>
+          <li> Add items to cart</li>
+          <li> Responsive design</li>
         </ul>
       </div>
 
