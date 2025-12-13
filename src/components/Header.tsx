@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="hidden lg:block">
+          <li>
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="font-bold">
