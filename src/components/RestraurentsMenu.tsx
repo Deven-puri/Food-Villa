@@ -55,7 +55,36 @@ const RestaurantsMenu = () => {
     }
   };
 
-  if (restInfo === null || !restInfo) return <Shimmer />;
+  if (restInfo === null || !restInfo) {
+    return (
+      <div className="flex justify-center items-center flex-col mt-2 sm:mt-4 p-2 sm:p-4">
+        {/* Restaurant Name Shimmer */}
+        <div className="shimmer h-8 sm:h-10 md:h-12 w-48 sm:w-64 md:w-80 rounded-lg mb-3 sm:mb-4 bg-gray-200"></div>
+
+        {/* Restaurant Image Shimmer */}
+        <div className="shimmer w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-xl mb-3 sm:mb-4 bg-gray-200"></div>
+
+        {/* Restaurant Info Card Shimmer */}
+        <div className="max-w-xl w-full bg-white rounded-xl border p-3 sm:p-5 shadow-lg mb-4 sm:mb-6 mx-2">
+          <div className="shimmer h-5 sm:h-6 w-24 sm:w-32 rounded mb-2 sm:mb-3 bg-gray-200"></div>
+          <div className="shimmer h-4 sm:h-5 w-full rounded mb-2 bg-gray-200"></div>
+          <div className="shimmer h-4 sm:h-5 w-3/4 rounded mb-2 bg-gray-200"></div>
+          <div className="shimmer h-4 sm:h-5 w-2/3 rounded bg-gray-200"></div>
+        </div>
+
+        {/* Menu Title Shimmer */}
+        <div className="shimmer h-6 sm:h-8 w-24 sm:w-32 rounded-lg mb-3 sm:mb-4 bg-gray-200"></div>
+
+        {/* Menu Items Shimmer */}
+        <div className="w-full max-w-4xl px-2 sm:px-4">
+          <div className="shimmer h-16 sm:h-20 md:h-24 w-full rounded-xl mb-3 sm:mb-4 bg-gray-200"></div>
+          <div className="shimmer h-16 sm:h-20 md:h-24 w-full rounded-xl mb-3 sm:mb-4 bg-gray-200"></div>
+          <div className="shimmer h-16 sm:h-20 md:h-24 w-full rounded-xl mb-3 sm:mb-4 bg-gray-200"></div>
+          <div className="shimmer h-16 sm:h-20 md:h-24 w-full rounded-xl bg-gray-200"></div>
+        </div>
+      </div>
+    );
+  }
 
   if (restInfo?.error) {
     return (
